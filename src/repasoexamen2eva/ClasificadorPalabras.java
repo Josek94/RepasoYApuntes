@@ -1,20 +1,21 @@
 package repasoexamen2eva;
 
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Scanner;
 import java.util.Set;
 
 public class ClasificadorPalabras {
 	public static void main(String[] args) {
-	
+		Set<String> cadenaDeCaracteres = new LinkedHashSet<>();
 		Scanner scanner = new Scanner(System.in);
 		
 		System.out.println("Introduce un nuevo texto: ");
 		String texto = scanner.nextLine();
 		
 		
+		texto = texto.replaceAll("\\p{Punct}", "");
+		texto = texto.replaceAll("[¿¡]", "");
 		
-		Set<String> cadenaDeCaracteres = new HashSet<>();
 		
 		for(String recorrer : texto.split(" ")) {
 			cadenaDeCaracteres.add(recorrer);
